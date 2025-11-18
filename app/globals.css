@@ -1,0 +1,444 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-condensed: 'Orbitron', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00f0ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+/* Cyber grid background pattern */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5),
+              0 0 40px rgba(0, 240, 255, 0.3),
+              0 0 60px rgba(0, 240, 255, 0.1);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+              0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.8),
+               0 0 20px rgba(0, 240, 255, 0.6),
+               0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+.text-glow-yellow {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+               0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Sci-fi UI lines */
+.ui-line {
+  position: relative;
+}
+
+.ui-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #00f0ff, transparent);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-rcf-neon-blue text-rcf-black font-bold py-4 px-8 uppercase tracking-wider;
+  @apply hover:bg-rcf-teal transition-all duration-300;
+  @apply glow-blue;
+  font-family: var(--font-condensed);
+  letter-spacing: 0.1em;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-rcf-neon-blue text-rcf-neon-blue font-bold py-4 px-8 uppercase tracking-wider;
+  @apply hover:bg-rcf-neon-blue hover:text-rcf-black transition-all duration-300;
+  font-family: var(--font-condensed);
+  letter-spacing: 0.1em;
+}
+
+.btn-hazard {
+  @apply bg-rcf-hazard-yellow text-rcf-black font-bold py-4 px-8 uppercase tracking-wider;
+  @apply hover:bg-yellow-400 transition-all duration-300;
+  @apply glow-yellow;
+  font-family: var(--font-condensed);
+  letter-spacing: 0.1em;
+}
+
+/* Section dividers */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+  margin: 80px 0;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300;
+  @apply hover:scale-105 hover:shadow-2xl;
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Navbar animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-slide-down {
+  animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+.nav-item-fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.nav-item-fade-in:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.nav-item-fade-in:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.nav-item-fade-in:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.nav-item-fade-in:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+/* Smooth nav item hover */
+.nav-item-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-item-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: #00f0ff;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-item-hover:hover::after {
+  width: 100%;
+}
+
+.nav-item-hover:hover {
+  transform: translateX(-4px);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Robot Classes 3D Card Effects */
+.robot-card-3d {
+  perspective: 1000px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.robot-card-container {
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.robot-card-3d:hover .robot-card-container {
+  transform: translateZ(50px) rotateY(5deg);
+}
+
+.robot-card-shell {
+  width: 100%;
+  aspect-ratio: 1;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.robot-card-3d:hover .robot-card-shell {
+  transform: translateZ(30px);
+}
+
+.robot-card-content {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.robot-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.robot-card-3d:hover .robot-image-container {
+  transform: translateZ(80px) scale(1.05);
+}
+
+.robot-image-actual {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.robot-card-3d:hover .robot-image-actual {
+  transform: translateZ(100px) scale(1.1);
+}
+
+.robot-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: grayscale(100%) brightness(0.8);
+}
+
+.robot-card-3d:hover .robot-image {
+  transform: translateZ(100px) scale(1.2);
+  filter: grayscale(0%) brightness(1.2);
+}
+
+.robot-card-text {
+  text-align: center;
+  width: 100%;
+}
+
+/* Robot placeholders - you can replace these with actual images */
+.robot-lightweight {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(0, 240, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.robot-lightweight::before {
+  content: '⚡';
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.robot-middleweight {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.3) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.robot-middleweight::before {
+  content: '🛡️';
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.robot-heavyweight {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(0, 240, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.robot-heavyweight::before {
+  content: '💥';
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.robot-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.robot-card-3d:hover .robot-card-info {
+  transform: translateZ(40px);
+}
+
+
+/* Responsive adjustments for robot cards */
+@media (max-width: 1024px) {
+  .robot-card-3d {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .robot-card-3d {
+    width: 250px;
+    margin: 2rem auto;
+  }
+}
+
+/* Events grid pattern animation */
+.events-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 20%,
+    black 40%,
+    black 60%,
+    transparent 80%,
+    transparent 100%
+  );
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  animation: grid-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes grid-sweep {
+  0% {
+    -webkit-mask-position: -200% 0;
+    mask-position: -200% 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    -webkit-mask-position: 200% 0;
+    mask-position: 200% 0;
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-mask-position: -200% 0;
+    mask-position: -200% 0;
+    opacity: 0;
+  }
+}
+
