@@ -7,7 +7,7 @@ import Events from "@/components/Events";
 import Register from "@/components/Register";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
-
+import { SplineSceneBasic } from "@/components/test";
 export default function Home() {
   return (
     <main className="min-h-screen">

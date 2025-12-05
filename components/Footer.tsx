@@ -1,15 +1,20 @@
+import Image from "next/image";
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 py-16">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-black border-t border-gray-800 py-12 md:py-16">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Logo/Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-3xl font-extrabold uppercase tracking-tight mb-4">
-              RCF
-            </h3>
-            <p className="text-gray-400 mb-6 max-w-md text-sm tracking-wider">
-              ROBOT COMBAT FEDERATION. WHERE ENGINEERING MEETS DOMINATION.
+            <Image
+              src="/logo.png"
+              alt="RCF Logo"
+              width={150}
+              height={100}
+              className="w-20 h-16 md:w-30 md:h-20 mb-4 md:mb-6"
+            />
+            <p className="text-gray-400 mb-4 md:mb-6 max-w-md text-xs md:text-sm tracking-wider">
+              WHERE ENGINEERING MEETS DOMINATION.
             </p>
             <div className="flex gap-4">
               <a
@@ -139,4 +144,3 @@ export default function Footer() {
     </footer>
   );
 }
-

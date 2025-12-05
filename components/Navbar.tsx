@@ -20,15 +20,21 @@ export default function Navbar() {
         scrolled ? " backdrop-blur-sm " : "bg-transparent"
       }`}
     >
-      <div className=" p-6 lg:p-12">
-        <div className="flex items-top justify-between  w-full">
+      <div className="p-4 md:p-6 lg:p-12">
+        <div className="flex items-top justify-between w-full">
           {/* Logo */}
           <a href="/" className="logo-slide-down">
-            <Image src="/logo.png" alt="RCF Logo" width={100} height={100} />
+            <Image
+              src="/logo.png"
+              alt="RCF Logo"
+              width={100}
+              height={100}
+              className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
+            />
           </a>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex flex-col items-right gap-8 text-right ">
+          <div className="hidden md:flex flex-col items-right gap-8 text-right">
             <a href="#about" className="nav-item-fade-in text-2xl space-x-2">
               A B O U T
             </a>
@@ -45,9 +51,9 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button className="md:hidden w-10 h-10 flex flex-col justify-center gap-1.5">
-            <span className="w-6 h-0.5 bg-rcf-neon-blue"></span>
-            <span className="w-6 h-0.5 bg-rcf-neon-blue"></span>
-            <span className="w-6 h-0.5 bg-rcf-neon-blue"></span>
+            <span className="w-6 h-0.5 bg-white"></span>
+            <span className="w-6 h-0.5 bg-white"></span>
+            <span className="w-6 h-0.5 bg-white"></span>
           </button>
         </div>
       </div>

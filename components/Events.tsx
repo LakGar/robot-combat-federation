@@ -42,12 +42,14 @@ export default function Events() {
       <div className="absolute top-0 left-0 z-0 w-full h-full events-grid-pattern"></div>
 
       {/* Title positioned bottom-right */}
-      <div className="absolute top-10 left-10 z-10 p-5">
-        <h2 className="text-8xl font-extrabold text-right">EVENTS</h2>
+      <div className="absolute top-10 left-4 md:left-10 z-10 p-4 md:p-5">
+        <h2 className="text-6xl md:text-8xl font-extrabold text-left md:text-right">
+          EVENTS
+        </h2>
       </div>
 
-      {/* Description top-left */}
-      <div className="absolute top-60 left-40 z-10 p-5 w-1/4 max-w-sm">
+      {/* Description top-left - hidden on mobile */}
+      <div className="hidden md:block absolute top-60 left-40 z-10 p-5 w-1/4 max-w-sm">
         <p className="text-md tracking-wider">
           WITNESS THE FUTURE OF COMBAT. <br /> <br />
           JOIN US FOR THRILLING BATTLES WHERE THE WORLD'S BEST ROBOTS COMPETE
@@ -56,43 +58,51 @@ export default function Events() {
         </p>
       </div>
 
+      {/* Mobile description */}
+      <div className="hidden absolute top-32 left-4 z-10 p-4 w-full max-w-sm">
+        <p className="text-sm tracking-wider">
+          WITNESS THE FUTURE OF COMBAT. JOIN US FOR THRILLING BATTLES WHERE THE
+          WORLD'S BEST ROBOTS COMPETE FOR DOMINANCE.
+        </p>
+      </div>
+
       {/* Events displayed vertically on the right side */}
-      <div className="relative z-10 w-full max-w-4xl ml-auto mr-12 px-12 pt-40 pb-40">
-        <div className="space-y-24">
+      <div className="relative z-10 w-full max-w-4xl mx-auto md:ml-auto md:mr-12 px-4 md:px-12 pt-32 md:pt-40 pb-20 md:pb-40">
+        <div className="space-y-12 md:space-y-24">
           {events.map((event, index) => (
             <div
               key={index}
-              className="flex items-start gap-12 hover:opacity-80 transition-opacity"
+              className="flex flex-col md:flex-row items-start gap-4 md:gap-12 hover:opacity-80 transition-opacity"
             >
               {/* Date section - left */}
-              <div className="flex-shrink-0 w-32">
-                <div className="text-4xl font-extrabold uppercase tracking-tight mb-1">
+              <div className="flex-shrink-0 w-full md:w-32">
+                <div className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-1">
                   {event.date}
                 </div>
-                <div className="text-sm tracking-wider uppercase text-gray-500 mb-2">
+                <div className="text-xs md:text-sm tracking-wider uppercase text-gray-500 mb-2">
                   {event.year}
                 </div>
-                <div className="text-sm tracking-wider uppercase text-gray-500">
+                <div className="text-xs md:text-sm tracking-wider uppercase text-gray-500">
                   {event.time}
                 </div>
               </div>
 
               {/* Event details - center */}
-              <div className="flex-1">
-                <h3 className="text-5xl font-extrabold uppercase tracking-tight mb-4">
+              <div className="flex-1 w-full">
+                <h3 className="text-2xl md:text-5xl font-extrabold uppercase tracking-tight mb-3 md:mb-4">
                   {event.title}
                 </h3>
-                <p className="text-sm tracking-wider uppercase text-gray-400 mb-6">
+                <p className="text-xs md:text-sm tracking-wider uppercase text-gray-400 mb-4 md:mb-6">
                   {event.location}
                 </p>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 md:gap-4 flex-wrap">
                   <span className="text-xs tracking-wider uppercase text-gray-500">
                     {event.status}
                   </span>
-                  <span className="text-gray-600">•</span>
+                  <span className="text-gray-600 hidden md:inline">•</span>
                   <a
                     href="#tickets"
-                    className="text-sm tracking-wider uppercase hover:underline"
+                    className="text-xs md:text-sm tracking-wider uppercase hover:underline"
                   >
                     BUY TICKETS
                   </a>
@@ -102,7 +112,7 @@ export default function Events() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-10 right-0 z-1 p-5">
+      <div className=" md:block absolute bottom-10 right-0 z-1 p-5">
         <Image
           src="/events.png"
           alt="Events"

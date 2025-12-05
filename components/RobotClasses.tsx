@@ -36,9 +36,11 @@ export default function RobotClasses() {
       <div className="absolute top-0 left-0 z-0 w-full h-full bg-black/40"></div>
 
       {/* Top  - Title */}
-      <div className="z-10 p-5 flex items-start justify-between w-full h-[300px]">
-        <h2 className="text-8xl font-extrabold text-left">ROBOT CLASSES</h2>
-        <div className=" z-10 p-5 w-1/4">
+      <div className="z-10 p-4 md:p-5 flex flex-col md:flex-row items-start justify-between w-full min-h-[200px] md:h-[300px]">
+        <h2 className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-left mb-4 md:mb-0">
+          ROBOT CLASSES
+        </h2>
+        <div className="hidden md:block z-10 p-5 w-1/4">
           <p className="text-md tracking-wider text-right mt-10">
             WELCOME TO THE FUTURE OF ROBOT COMBAT. <br /> <br />
             OUR MISSION IS TO PUSH THE LIMITS OF ENGINEERING, CREATIVITY, AND
@@ -46,6 +48,13 @@ export default function RobotClasses() {
             DESTROYERS, EVERY ROBOT ENTERS THE ARENA TO PROVE ITS DOMINANCE.
             EXPERIENCE WORLD-CLASS BATTLES WHERE INNOVATION, STRATEGY, AND PURE
             MECHANICAL POWER COLLIDE.
+          </p>
+        </div>
+        {/* Mobile description */}
+        <div className="md:hidden w-full mt-4">
+          <p className="text-sm tracking-wider">
+            WELCOME TO THE FUTURE OF ROBOT COMBAT. OUR MISSION IS TO PUSH THE
+            LIMITS OF ENGINEERING, CREATIVITY, AND COMPETITION.
           </p>
         </div>
       </div>

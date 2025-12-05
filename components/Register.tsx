@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -28,18 +29,20 @@ export default function Register() {
   return (
     <section
       id="register"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black"
     >
       {/* Background overlay */}
       <div className="absolute top-0 left-0 z-0 w-full h-full bg-black/40"></div>
 
       {/* Title top-left */}
-      <div className="absolute top-10 left-30 z-10 p-5">
-        <h2 className="text-8xl font-extrabold text-left">REGISTER</h2>
+      <div className="absolute top-10 left-0 z-10 p-4 md:p-5">
+        <h2 className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-left tracking-wider">
+          REGISTER
+        </h2>
       </div>
 
-      {/* Description top-right */}
-      <div className="absolute top-60 right-0 z-10 p-5 w-1/4 max-w-sm">
+      {/* Description top-right - hidden on mobile */}
+      <div className="hidden md:block absolute top-60 right-0 z-10 p-5 w-1/4 max-w-sm">
         <p className="text-md tracking-wider text-right">
           JOIN THE COMPETITION. <br /> <br />
           ENTER THE ARENA. REGISTER YOUR ROBOT AND BECOME PART OF THE PREMIER
@@ -47,10 +50,18 @@ export default function Register() {
         </p>
       </div>
 
+      {/* Mobile description */}
+      <div className="md:hidden absolute top-32 left-4 z-10 p-4 w-full max-w-sm">
+        <p className="text-sm tracking-wider">
+          JOIN THE COMPETITION. ENTER THE ARENA. REGISTER YOUR ROBOT AND BECOME
+          PART OF THE PREMIER ROBOT COMBAT FEDERATION.
+        </p>
+      </div>
+
       {/* Registration form - centered */}
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-12 py-40">
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="grid md:grid-cols-2 gap-8">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 md:px-12 pt-32 md:pt-40 pb-20 md:pb-40">
+        <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <label
                 htmlFor="teamName"
@@ -90,7 +101,7 @@ export default function Register() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <label
                 htmlFor="division"
@@ -148,7 +159,7 @@ export default function Register() {
                 required
                 className="w-5 h-5 bg-transparent border border-gray-700 text-white focus:ring-0 focus:ring-offset-0 mt-1"
               />
-              <span className="ml-3 text-sm text-gray-400">
+              <span className="ml-3 text-xs md:text-sm text-gray-400">
                 I agree to the competition rules and safety regulations. I
                 understand that all robots must pass safety inspections before
                 competing.
@@ -159,7 +170,7 @@ export default function Register() {
           <div className="pt-8">
             <button
               type="submit"
-              className="w-full md:w-auto px-12 py-4 border border-white text-white uppercase tracking-wider text-sm font-semibold hover:bg-white hover:text-black transition-all"
+              className="w-full md:w-auto px-8 md:px-12 py-3 md:py-4 border border-white text-white uppercase tracking-wider text-xs md:text-sm font-semibold hover:bg-white hover:text-black transition-all"
             >
               SUBMIT REGISTRATION
             </button>
@@ -167,8 +178,8 @@ export default function Register() {
         </form>
 
         {/* Additional info */}
-        <div className="mt-12 text-center text-gray-500">
-          <p className="text-sm">
+        <div className="mt-8 md:mt-12 text-center text-gray-500">
+          <p className="text-xs md:text-sm">
             Questions? Contact us at{" "}
             <a href="mailto:register@rcf.com" className="hover:underline">
               register@rcf.com
